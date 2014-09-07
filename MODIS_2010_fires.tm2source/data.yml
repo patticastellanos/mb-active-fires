@@ -1,0 +1,28 @@
+_prefs: 
+  disabled: []
+  inspector: false
+  mapid: patticastellanos.15f13089
+  rev: s-178bb928
+  saveCenter: true
+attribution: "ftp://fuoco.geog.umd.edu"
+center: 
+  - 7.338867187500001
+  - 8.494104537551882
+  - 4
+description: 2010 active fires
+Layer: 
+  - id: fires
+    Datasource: 
+      file: /Users/patti/Dropbox/mapbox/mb-active-fires/data/modis_fire_201001_201012.csv
+      type: csv
+    description: MODIS 2010 Active Fires
+    fields: 
+      fires: Number
+      latitude: Number
+      longitude: Number
+    properties: 
+      "buffer-size": 16
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+maxzoom: 6
+minzoom: 0
+name: MODIS_Fires

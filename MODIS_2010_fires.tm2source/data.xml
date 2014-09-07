@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+
+<Parameters>
+  <Parameter name="attribution"><![CDATA[ftp://fuoco.geog.umd.edu]]></Parameter>
+  <Parameter name="center">7.338867187500001,8.494104537551882,4</Parameter>
+  <Parameter name="description"><![CDATA[2010 active fires]]></Parameter>
+  <Parameter name="format">pbf</Parameter>
+  <Parameter name="json"><![CDATA[{"vector_layers":[{"id":"fires","description":"MODIS 2010 Active Fires","fields":{"latitude":"Number","longitude":"Number","fires":"Number"}}]}]]></Parameter>
+  <Parameter name="maxzoom">6</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="name"><![CDATA[MODIS_Fires]]></Parameter>
+</Parameters>
+
+
+<Layer name="fires"
+  buffer-size="16"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/patti/Dropbox/mapbox/mb-active-fires/data/modis_fire_201001_201012.csv]]></Parameter>
+       <Parameter name="type"><![CDATA[csv]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

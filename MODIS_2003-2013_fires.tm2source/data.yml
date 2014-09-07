@@ -1,0 +1,28 @@
+_prefs: 
+  disabled: []
+  inspector: false
+  mapid: patticastellanos.324aa1e5
+  rev: s-9c7010fd
+  saveCenter: true
+attribution: ''
+center: 
+  - 0.25
+  - 2.25
+  - 5
+description: ''
+Layer: 
+  - id: fires
+    Datasource: 
+      file: /Users/patti/Dropbox/mapbox/mb-active-fires/data/modis_fire_200301_201312.csv
+      type: csv
+    description: MODIS fire 2003-2013, max scaled to 100
+    fields: 
+      fires: Number
+      latitude: Number
+      longitude: Number
+    properties: 
+      "buffer-size": 8
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+maxzoom: 6
+minzoom: 0
+name: MODIS 2003-2010
