@@ -8,9 +8,9 @@
 
 // Common Colors //
 @land: #333;
-@water: #336699;
+@water: #333;
 
-//Map { background-color: @land; }
+Map { background-color: @land; }
 
 // Political boundaries //
 

@@ -10,9 +10,9 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -16.875
-  - 5.61598581915534
-  - 2
+  - -34.453125
+  - -36.03133177633187
+  - 3
 description: 10 years of MODIS active fire observations
 format: "png8:m=h"
 interactivity_layer: ''

@@ -23,7 +23,7 @@
 #fires {
   //point-comp-op:lighten;
   point-opacity:0.35;
-  point-file:url(flame_on_flame.svg);
+  point-file:url(flame.png);
   point-allow-overlap:true;
   point-transform:"scale(0.02)";
   [fires >=0] {point-opacity:0.3;}

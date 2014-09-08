@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Map[]>
-<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#333333">
 
 <Parameters>
   <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">-16.875,5.61598581915534,2</Parameter>
+  <Parameter name="center">-34.453125,-36.03133177633187,3</Parameter>
   <Parameter name="description"><![CDATA[10 years of MODIS active fire observations]]></Parameter>
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
@@ -39,68 +39,68 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#336699" />
+    <LineSymbolizer stroke-width="3" stroke="#333333" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#336699" />
+    <LineSymbolizer stroke-width="2" stroke="#333333" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#336699" />
+    <LineSymbolizer stroke-width="1" stroke="#333333" />
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke="#336699" stroke-width="0.5" />
+    <LineSymbolizer stroke="#333333" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#336699" />
+    <LineSymbolizer stroke-width="3" stroke="#333333" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#336699" />
+    <LineSymbolizer stroke-width="2" stroke="#333333" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#336699" />
+    <LineSymbolizer stroke-width="1" stroke="#333333" />
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke="#336699" stroke-width="0.5" />
+    <LineSymbolizer stroke="#333333" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#336699" />
+    <LineSymbolizer stroke-width="3" stroke="#333333" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#336699" />
+    <LineSymbolizer stroke-width="2" stroke="#333333" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#336699" />
+    <LineSymbolizer stroke-width="1" stroke="#333333" />
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke="#336699" stroke-width="0.5" />
+    <LineSymbolizer stroke="#333333" stroke-width="0.5" />
   </Rule>
 </Style>
 <Layer name="waterway"
@@ -109,7 +109,7 @@
 
 <Style name="water" filter-mode="first">
   <Rule>
-    <PolygonSymbolizer fill="#336699" gamma="0.6" />
+    <PolygonSymbolizer fill="#333333" gamma="0.6" />
   </Rule>
 </Style>
 <Layer name="water"
@@ -167,58 +167,58 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke="#ccddee" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke="#ccddee" stroke-width="0.5" />
   </Rule>
   <Rule>
@@ -265,58 +265,58 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
     <LineSymbolizer stroke="#ccddee" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#ccddee" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'main')</Filter>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'motorway')</Filter>
     <LineSymbolizer stroke="#ccddee" stroke-width="0.5" />
   </Rule>
   <Rule>
@@ -329,22 +329,6 @@
     <StyleName>road</StyleName>  </Layer>
 
 <Style name="bridge" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ccddee" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#ccddee" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street')</Filter>
-    <LineSymbolizer stroke="#ccddee" stroke-width="0.5" />
-  </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street_limited')</Filter>
@@ -360,6 +344,22 @@
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street_limited')</Filter>
     <LineSymbolizer stroke-dasharray="4, 1" stroke="#ccddee" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ccddee" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#ccddee" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([mapnik::geometry_type] = 2) and ([class] = 'street')</Filter>
+    <LineSymbolizer stroke="#ccddee" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -476,40 +476,6 @@
 
 <Style name="country_label" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <Filter>([scalerank] = 3)</Filter>
-    <TextSymbolizer size="16" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([scalerank] = 3)</Filter>
-    <TextSymbolizer size="14" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([scalerank] = 3)</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Semibold" fill="#6666aa" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <Filter>([scalerank] = 2)</Filter>
-    <TextSymbolizer size="16" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([scalerank] = 2)</Filter>
-    <TextSymbolizer size="14" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([scalerank] = 2)</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Semibold" fill="#6666aa" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <Filter>([scalerank] = 1)</Filter>
     <TextSymbolizer size="16" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
@@ -535,6 +501,40 @@
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([scalerank] &gt; 3)</Filter>
+    <TextSymbolizer face-name="Source Sans Pro Semibold" fill="#6666aa" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <Filter>([scalerank] = 3)</Filter>
+    <TextSymbolizer size="16" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] = 3)</Filter>
+    <TextSymbolizer size="14" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] = 3)</Filter>
+    <TextSymbolizer face-name="Source Sans Pro Semibold" fill="#6666aa" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <Filter>([scalerank] = 2)</Filter>
+    <TextSymbolizer size="16" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] = 2)</Filter>
+    <TextSymbolizer size="14" face-name="Source Sans Pro Semibold" fill="#6666aa" ><![CDATA[[name_en]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] = 2)</Filter>
     <TextSymbolizer face-name="Source Sans Pro Semibold" fill="#6666aa" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -591,34 +591,34 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
+    <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
     <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
+    <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
     <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
+    <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
     <TextSymbolizer face-name="Source Sans Pro Regular" fill="#666666" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
+    <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
     <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
+    <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
     <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
+    <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
     <TextSymbolizer face-name="Source Sans Pro Regular" fill="#666666" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -662,30 +662,30 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#0d1926" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#000000" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#0d1926" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#000000" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#0d1926" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#000000" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#0d1926" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#0d1926" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#000000" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#0d1926" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#000000" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <TextSymbolizer face-name="Source Sans Pro Italic" fill="#000000" size="13" wrap-width="100" wrap-before="true" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="water_label"
@@ -712,315 +712,315 @@
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.9" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.9" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.9" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.9" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.9" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.9" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.9" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.9" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.9" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.9" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.9" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.9" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.9" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.9" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 80)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.8" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.8" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 80)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.8" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.8" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 80)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.8" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.8" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 80)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.8" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.8" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 80)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.8" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.8" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 80)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.8" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.8" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 80)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.8" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.8" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 60)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.7" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.7" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 60)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.7" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.7" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 60)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.7" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.7" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 60)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.7" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.7" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 60)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.7" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.7" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 60)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.7" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.7" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 60)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.7" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.7" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 40)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.6" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.6" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 40)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.6" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.6" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 40)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.6" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.6" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 40)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.6" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.6" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 40)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.6" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.6" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 40)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.6" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.6" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 40)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.6" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.6" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.5" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.5" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.5" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.5" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.5" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.5" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.5" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.5" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.5" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.5" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.5" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.5" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.5" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.5" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.4" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.4" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.4" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.4" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.4" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.4" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.4" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.4" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.4" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.4" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.4" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.4" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.4" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.4" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.3" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.3" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.3" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.3" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.3" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.3" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.3" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.3" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.3" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.3" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.3" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.3" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.3" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.3" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.35" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.16)" opacity="0.35" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.35" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.08)" opacity="0.35" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.35" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.04)" opacity="0.35" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.35" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.35" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.35" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.01)" opacity="0.35" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.35" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.02)" opacity="0.35" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
-    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.35" file="flame_on_flame.svg" allow-overlap="true" />
+    <PointSymbolizer transform="scale(0.1*[fires]*0.0025)" opacity="0.35" file="flame.png" allow-overlap="true" />
   </Rule>
 </Style>
 <Layer name="fires"
