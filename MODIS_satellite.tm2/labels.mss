@@ -4,16 +4,16 @@
 @sans: 'Meta Offc Pro Cond Normal', 'Arial Unicode MS Regular';
 @sans_it: 'Meta Offc Pro Light Italic', 'Arial Unicode MS Regular';
 @serif_md: 'Meta Serif SC Offc Pro Medium', 'Arial Unicode MS Regular';
-
+@din: 'DIN Offc Pro Regular', 'Arial Unicode MS Regular';
 #country_label {
   text-name: @name;
-  text-face-name: @serif_md;
-  text-fill: #ed8;
-  text-halo-fill: fadeout(darken(@water,10),95);
-  text-halo-radius: 3;
-  text-halo-rasterizer: fast;
+  text-face-name: @din;
+  text-fill: black;
+  //text-halo-fill: fadeout(darken(@water,10),95);
+  //text-halo-radius: 3;
+  //text-halo-rasterizer: fast;
   [zoom>=3] {
-    text-size: 10;
+    text-size: 9;
     [scalerank<=6] { text-size: 12; }
     [scalerank<=4] { text-size: 14; }
     [scalerank<=2] { text-size: 16; }

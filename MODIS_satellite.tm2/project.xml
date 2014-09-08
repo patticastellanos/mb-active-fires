@@ -5,7 +5,7 @@
 <Parameters>
   <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">-57.39257812499999,-10.22843726615593,4</Parameter>
+  <Parameter name="center">7.734374999999999,-29.228890030194215,2</Parameter>
   <Parameter name="format">jpeg95</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
@@ -14,7 +14,7 @@
 </Parameters>
 
 <FontSet name="fontset-0">
-  <Font face-name="Meta Serif SC Offc Pro Medium"/>
+  <Font face-name="DIN Offc Pro Regular"/>
   <Font face-name="Arial Unicode MS Regular"/>
 </FontSet>
 <FontSet name="fontset-1">
@@ -25,7 +25,7 @@
   <Font face-name="Meta Offc Pro Light Italic"/>
   <Font face-name="Arial Unicode MS Regular"/>
 </FontSet>
-<Style name="mapbox_satellite_full" filter-mode="first" image-filters="scale-hsla(0.5,0.6,0,0.2,0.4,0.8,0,1)">
+<Style name="mapbox_satellite_full" filter-mode="first">
   <Rule>
     <RasterSymbolizer opacity="1" />
   </Rule>
@@ -42,7 +42,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
       </Layer>
 
-<Style name="mapbox_satellite_watermask" filter-mode="first" image-filters="scale-hsla(0.5,0.6,0,0.2,0.4,0.8,0,1)">
+<Style name="mapbox_satellite_watermask" filter-mode="first">
   <Rule>
     <RasterSymbolizer opacity="1" />
   </Rule>
@@ -51,9 +51,14 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>mapbox_satellite_watermask</StyleName>  </Layer>
 
+<Style name="landcover" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="#000000" />
+  </Rule>
+</Style>
 <Layer name="landcover"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-      </Layer>
+    <StyleName>landcover</StyleName>  </Layer>
 
 <Style name="hillshade" filter-mode="first" comp-op="overlay">
   <Rule>
@@ -94,7 +99,7 @@
 
 <Style name="water" filter-mode="first" opacity="0.8">
   <Rule>
-    <PolygonSymbolizer fill="#445566" />
+    <PolygonSymbolizer fill="#181a90" />
   </Rule>
 </Style>
 <Layer name="water"
@@ -143,19 +148,19 @@
 <Style name="admin" filter-mode="first">
   <Rule>
     <Filter>([admin_level] = 2) and ([maritime] = 1)</Filter>
-    <LineSymbolizer stroke="#334455" stroke-dasharray="3, 2" />
+    <LineSymbolizer stroke="#181a90" stroke-dasharray="3, 2" />
   </Rule>
 </Style>
 <Style name="admin-fill" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([admin_level] = 2) and ([maritime] = 0)</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#ffffff" stroke-linejoin="round" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([admin_level] = 2) and ([maritime] = 0)</Filter>
-    <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-linecap="round" stroke-width="0.6" />
+    <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-width="0.3" />
   </Rule>
   <Rule>
     <Filter>([admin_level] = 4) and ([maritime] = 0)</Filter>
@@ -166,16 +171,16 @@
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([admin_level] = 2) and ([maritime] = 0)</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#445566" stroke-linejoin="round" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="5" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([admin_level] = 2) and ([maritime] = 0)</Filter>
-    <LineSymbolizer stroke="#445566" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" />
+    <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-width="1" />
   </Rule>
   <Rule>
     <Filter>([admin_level] = 4) and ([maritime] = 0)</Filter>
-    <LineSymbolizer stroke-opacity="0.5" stroke="#445566" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" />
+    <LineSymbolizer stroke-opacity="0.5" stroke="#181a90" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" />
   </Rule>
 </Style>
 <Layer name="admin"
@@ -192,86 +197,86 @@
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([scalerank] &lt;= 2)</Filter>
-    <TextSymbolizer size="26" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="26" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 2)</Filter>
-    <TextSymbolizer size="20" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="20" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 2)</Filter>
-    <TextSymbolizer size="16" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="16" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 2)</Filter>
-    <TextSymbolizer fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([scalerank] &lt;= 4)</Filter>
-    <TextSymbolizer size="22" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="22" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 4)</Filter>
-    <TextSymbolizer size="17" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="17" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 4)</Filter>
-    <TextSymbolizer size="14" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 4)</Filter>
-    <TextSymbolizer fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([scalerank] &lt;= 6)</Filter>
-    <TextSymbolizer size="18" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="18" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 6)</Filter>
-    <TextSymbolizer size="14" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 6)</Filter>
-    <TextSymbolizer size="12" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 6)</Filter>
-    <TextSymbolizer fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <TextSymbolizer size="14" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <TextSymbolizer size="11" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="11" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
-    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="9" fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>100000000</MinScaleDenominator>
-    <TextSymbolizer fontset-name="fontset-0" fill="#eedd88" halo-fill="rgba(48, 60, 71, 0.050000000000000044)" halo-radius="3" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer fontset-name="fontset-0" fill="#000000" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="country_label"
@@ -290,738 +295,738 @@
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="22" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="22" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="18" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="16" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer size="14" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="14" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 3) and ([scalerank] &lt;= 5)</Filter>
-    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="28" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="28" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="20" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="20" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="18" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer size="16" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 0) and ([scalerank] &lt;= 2)</Filter>
-    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="18" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="18" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer size="16" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer size="16" dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E') and ([scalerank] &gt;= 6)</Filter>
-    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW')</Filter>
-    <ShieldSymbolizer dx="-4" dy="-3" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="-3" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW')</Filter>
-    <ShieldSymbolizer dx="-4" dy="-3" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="-3" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NW')</Filter>
-    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW')</Filter>
-    <ShieldSymbolizer dx="-4" dy="5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW')</Filter>
-    <ShieldSymbolizer dx="-4" dy="5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SW')</Filter>
-    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE')</Filter>
-    <ShieldSymbolizer dx="4" dy="5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE')</Filter>
-    <ShieldSymbolizer dx="4" dy="5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'SE')</Filter>
-    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE')</Filter>
-    <ShieldSymbolizer dx="4" dy="-3" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="-3" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE')</Filter>
-    <ShieldSymbolizer dx="4" dy="-3" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="-3" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'NE')</Filter>
-    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="4" dy="-3" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S')</Filter>
-    <ShieldSymbolizer dy="8" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="8" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S')</Filter>
-    <ShieldSymbolizer dy="8" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="8" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'S')</Filter>
-    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="8" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N')</Filter>
-    <ShieldSymbolizer dy="-5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="-5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N')</Filter>
-    <ShieldSymbolizer dy="-5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="-5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'N')</Filter>
-    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dy="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W')</Filter>
-    <ShieldSymbolizer dx="-5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W')</Filter>
-    <ShieldSymbolizer dx="-5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'W')</Filter>
-    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="-5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E')</Filter>
-    <ShieldSymbolizer dx="5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="5" size="16" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E')</Filter>
-    <ShieldSymbolizer dx="5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="5" size="14" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([ldir] = 'E')</Filter>
-    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(68, 85, 102, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
+    <ShieldSymbolizer dx="5" file="img/dot-3.png" unlock-image="true" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="rgba(24, 26, 144, 0.09999999999999998)" halo-radius="2" halo-rasterizer="fast" minimum-distance="3" line-spacing="-4" size="13" ><![CDATA[[name_en]]]></ShieldSymbolizer>
   </Rule>
 </Style>
 <Layer name="place_label"
@@ -1033,56 +1038,56 @@
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([area] &gt; 200000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([area] &gt; 200000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 200000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([area] &gt; 200000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([area] &gt; 50000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([area] &gt; 50000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([area] &gt; 50000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([area] &gt; 0)</Filter>
-    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(68, 85, 102, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" line-spacing="-2" fontset-name="fontset-2" fill="#aabbcc" halo-fill="rgba(24, 26, 144, 0.15000000000000002)" halo-radius="2" halo-rasterizer="fast" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="water_label"
@@ -1109,291 +1114,291 @@
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" opacity="0.9" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.16)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" opacity="0.9" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.08)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] = 100)</Filter>
-    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.9" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([fires] = 100)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.9" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000000</MinScaleDenominator>
-    <Filter>([fires] = 100)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" opacity="0.9" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([fires] = 100)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.9" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([fires] = 100)</Filter>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" opacity="0.9" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <Filter>([fires] &gt;= 80)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" opacity="0.8" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 80)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" opacity="0.8" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 80)</Filter>
-    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.8" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 80)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.8" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 80)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" opacity="0.8" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 80)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.8" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 80)</Filter>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" opacity="0.8" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <Filter>([fires] &gt;= 60)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" opacity="0.7" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 60)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" opacity="0.7" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 60)</Filter>
-    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.7" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 60)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.7" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 60)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" opacity="0.7" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 60)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.7" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 60)</Filter>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" opacity="0.7" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <Filter>([fires] &gt;= 40)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" opacity="0.6" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 40)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" opacity="0.6" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 40)</Filter>
-    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.6" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 40)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.6" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 40)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" opacity="0.6" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 40)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.6" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 40)</Filter>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" opacity="0.6" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <Filter>([fires] &gt;= 20)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 20)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([fires] &gt;= 20)</Filter>
     <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([fires] = 100)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.02)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([fires] = 100)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.01)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([fires] = 100)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.005)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([fires] = 100)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <Filter>([fires] &gt;= 80)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.16)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 80)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.08)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 80)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 80)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.02)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 80)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.01)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 80)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.005)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 80)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <Filter>([fires] &gt;= 60)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.16)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 60)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.08)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 60)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 60)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.02)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 60)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.01)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 60)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.005)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 60)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <Filter>([fires] &gt;= 40)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.16)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 40)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.08)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 40)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 40)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.02)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 40)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.01)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 40)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.005)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 40)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.16)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 20)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.08)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 20)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([fires] &gt;= 20)</Filter>
+    <MarkersSymbolizer transform="scale([fires]*0.02)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.01)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.005)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 20)</Filter>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" opacity="0.5" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" opacity="0.4" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.16)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" opacity="0.4" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.08)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.4" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.4" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.02)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" opacity="0.4" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.01)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.4" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.005)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 10)</Filter>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" opacity="0.4" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" opacity="0.3" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.16)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" opacity="0.3" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.08)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="0.3" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.04)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.3" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.02)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" opacity="0.3" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.01)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" opacity="0.3" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.005)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([fires] &gt;= 0)</Filter>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" opacity="0.3" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" opacity="1" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*5)" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.16)" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.08)" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.08)" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
@@ -1403,21 +1408,21 @@
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.02)" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.01)" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.01)" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <MarkersSymbolizer transform="scale(0.1*[fires^0.5]*0.02)" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.005)" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
-    <MarkersSymbolizer transform="scale([fires^0.5]*0.015)" comp-op="lighten" file="flame.png" allow-overlap="true" />
+    <MarkersSymbolizer transform="scale([fires]*0.0025)" comp-op="lighten" file="flame.png" allow-overlap="true" />
   </Rule>
 </Style>
 <Layer name="fires"

@@ -1,10 +1,19 @@
 // Common Colors //
-@water: #456;
+@water: #181a90;
 
 #water {
   polygon-fill: @water;
   opacity: 0.8
 }
+
+#landcover { polygon-fill: black}
+
+/*#landcover {
+  [class='wood']{polygon-fill:#084d0a;}
+  [class='scrub']{polygon-fill:#6aae6b;}
+  [class='grass']{polygon-fill:#8ea98f;}
+  [class='crop']{polygon-fill:#bac980;}
+}*/
 
 #road, #bridge {
   line-color: #abc;
@@ -14,7 +23,7 @@
 #mapbox_satellite_full,
 #mapbox_satellite_watermask  {
   raster-opacity: 1;
-  image-filters: scale-hsla( 0.5,0.6, 0.0,0.2, 0.4,0.8, 0,1 );
+  //image-filters: scale-hsla( 0.5,0.6, 0.0,0.2, 0.4,0.8, 0,1 );
 }
 
 // Southern Hemisphere:
@@ -31,21 +40,21 @@
   [maritime=0] {
     ::case {
       opacity: 0.5;
-      line-color: @water;
+      line-color: black;
       line-join: round;
       line-cap: round;
-      line-width: 3;
+      line-width: 1;
       [zoom>=6] { line-width: 5; }
     }
     ::fill {
-      line-color: white;
+      line-color: black;
       line-join: round;
       line-cap: round;
-      line-width: 0.6;
+      line-width: 0.3;
       [zoom>=6] { line-width: 1; }
     }
   }
-  [maritime=1] { line-color: #345; line-dasharray: 3,2; }
+  [maritime=1] { line-color: @water; line-dasharray: 3,2; }
 }
 
 #admin[admin_level=4][maritime=0] {
