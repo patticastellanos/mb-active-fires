@@ -12,7 +12,7 @@ bounds:
 center: 
   - -34.453125
   - -36.03133177633187
-  - 3
+  - 1
 description: 10 years of MODIS active fire observations
 format: "png8:m=h"
 interactivity_layer: ''

@@ -1,25 +1,3 @@
-/*#modis_fire_201001_201012 {
-  point-comp-op:lighten;
-  point-opacity:0.35;
-  point-file:url(flame_on_flame.svg);
-  point-allow-overlap:true;
-  [zoom>=0] { point-transform:"scale([fires]*0.000005)"; }
-  [zoom>=1] { point-transform:"scale([fires]*0.00001)"; }
-  [zoom>=2] { point-transform:"scale([fires]*0.00002)"; }
-  [zoom>=3] { point-transform:"scale([fires]*0.00004)"; }
-  [zoom>=4] { point-transform:"scale([fires]*0.00008)"; }
-  [zoom>=5] { point-transform:"scale([fires]*0.00016)"; }
-  [zoom>=6] { point-transform:"scale([fires]*0.00032)"; }
-}*/
-
-/*#modis_fire_201001_201012 {
-  image-filters:colorize-alpha(blue, cyan, green, yellow , orange, red);
-  comp-op:multiply;
-  marker-allow-overlap:true;
-  marker-file:url(flame_on_flame.svg);
-  marker-width:0.6;
-}*/
-
 #fires {
   //point-comp-op:lighten;
   point-opacity:0.35;
@@ -43,7 +21,3 @@
   [zoom>=6] { point-transform:"scale(0.1*[fires]*0.16)"; }
 
 }
-/*#fires{
-  raster-opacity:0.35;
-  raster-colorizer-default-mode:linear;
-}*/

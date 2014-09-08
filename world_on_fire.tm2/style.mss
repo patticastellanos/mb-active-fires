@@ -15,9 +15,11 @@ Map { background-color: @land; }
 // Political boundaries //
 
 #admin[admin_level=2][maritime=0] {
-  line-join: round;
-  line-color: #bbe;
-  line-width: 1.4;
+  [zoom>=2] {
+    line-join: round;
+    line-color: white;
+    line-width: 1.4;
+   }
   [zoom>=6] { line-width: 2; }
   [zoom>=8] { line-width: 4; }
   [disputed=1] { line-dasharray: 4,4; }
